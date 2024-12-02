@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Leite para Bebés</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f8ff;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.4em;
+            text-align: center;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .instructions {
+            margin-top: 20px;
+            background: #eaf2f8;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .instructions img {
+            display: block;
+            margin: 10px auto;
+            max-width: 100px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Leite para Bebés</h1>
+        <img src="https://www.publicdomainpictures.net/pictures/320000/velka/baby-bottle-and-pacifier.jpg" alt="Biberão" style="display:block; margin: auto; max-width: 150px;">
+        <p style="text-align: center;">Insira o peso do bebé e o número de refeições para calcular a quantidade de leite recomendada por refeição.</p>
+        <div class="input-group">
+            <label for="peso">Peso do bebé (em kg):</label>
+            <input type="number" id="peso" placeholder="Exemplo: 4.5">
+        </div>
+        <div class="input-group">
+            <label for="refeicoes">Número de refeições por dia:</label>
+            <input type="number" id="refeicoes" value="6" min="1">
+        </div>
+        <button onclick="calcular()">Calcular</button>
+        <div class="result" id="resultado"></div>
+        <div class="instructions">
+            <h2>Como preparar o leite</h2>
+            <img src="https://www.publicdomainpictures.net/pictures/30000/velka/baby-bottle.jpg" alt="Biberão">
+            <p>
+                Para preparar o leite, siga as instruções do fabricante na embalagem. Certifique-se de que a água utilizada está à temperatura ideal 
+                e que o biberão está bem higienizado. Consulte sempre o seu Médico de Família ou Pediatra em caso de dúvida.
+            </p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 - Calculadora de Leite para Bebés</p>
+    </div>
+    <script>
+        function calcular() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const refeicoes = parseInt(document.getElementById('refeicoes').value);
+            if (!peso || !refeicoes || peso <= 0 || refeicoes <= 0) {
+                document.getElementById('resultado').innerText = "Por favor, insira valores válidos.";
+                return;
+            }
+            const quantidade = (150 * peso) / refeicoes; // Fórmula do cálculo
+            document.getElementById('resultado').innerText = `Quantidade por refeição: ${quantidade.toFixed(2)} ml`;
+        }
+    </script>
+</body>
+</html>
